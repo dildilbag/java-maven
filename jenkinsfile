@@ -1,4 +1,5 @@
-pipeline{
+
+/*pipeline{
     agent any
     stages{
         stage('Build') {
@@ -6,7 +7,7 @@ pipeline{
                 echo "Hallo World"
             }
         }
-        /* 
+       
         stage('Hello') {
             steps {
                 echo " Die BuildID lautet: '$BUILD_ID'  Jobname ist: '$JOB_NAME'  Build mit der Nummer '$BUILD_NUMBER' wird gebaut "
@@ -18,9 +19,28 @@ pipeline{
                 '''
             }
         }
-       
-     */
    
 }
 }
 
+ */
+ pipeline {
+agent any
+stages {
+stage('fetch') {
+steps {
+sh 'git clone https://github.com/linuxacademy/content-pipelines-cje-labs.git'
+}
+}
+stage('build'){
+steps{
+sh 'gcc --std=c99 -o mario content-pipelines-cje-labs/lab1_lab2/mario.c'
+}
+}
+stage('archive'){
+steps{
+archiveArtifacts artifacts: 'mario'
+}
+}
+}
+}
