@@ -1,5 +1,5 @@
 
-/*pipeline{
+pipeline{
     agent any
     stages{
         stage('Build') {
@@ -23,15 +23,4 @@
 }
 }
 
- */
- pipeline {
-agent any
-stages {
-stage('fetch') {
-steps {
-sh 'git clone https://github.com/linuxacademy/content-pipelines-cje-labs.git'
-}
-}
 
-}
-}
