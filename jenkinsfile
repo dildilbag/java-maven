@@ -1,7 +1,12 @@
 pipeline{
     agent any
+   
 
     stages{
+        stage("Test")
+       when{
+        branch "main"
+       }
         stage("Build"){
             steps{
                 echo "Die BUildID lautet: ${BUILD_ID} jobname ist: ${JON_NAME} build mit der nummer ${BUILD_NUMMER}"
