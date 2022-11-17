@@ -12,11 +12,7 @@ pipeline{
                 '''
             }
     }
-    stage ("docker build"){
-        steps{
-
-        }
-    }
+   
 }
 }
 //echo "Hallo world"
