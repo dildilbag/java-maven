@@ -1,19 +1,4 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn -B -DskipTests clean package'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-    }
-}
-/* 
+
 pipeline{
     agent any
     stages{
@@ -23,21 +8,6 @@ pipeline{
             }
         }
        
-        stage('Hello') {
-            steps {
-                echo " Die BuildID lautet: '$BUILD_ID'  Jobname ist: '$JOB_NAME'  Build mit der Nummer '$BUILD_NUMBER' wird gebaut "
-                sh '''
-                ls
-                mvn package
-                cd target
-                ls
-                '''
-            }
-        }
-    
-    
-}
-}
-*/
+     }}
 
 
