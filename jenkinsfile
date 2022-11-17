@@ -1,1 +1,22 @@
-echo "Hallo world"
+pipeline{
+    agent any
+
+    stages{
+        stage("Build"){
+            steps{
+                echo "Buildung"
+                bat "mvn package"
+                bat '''
+                cd target
+                dir
+                '''
+            }
+    }
+    stage ("docker build"){
+        steps{
+
+        }
+    }
+}
+}
+//echo "Hallo world"
