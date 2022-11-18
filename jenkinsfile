@@ -1,11 +1,20 @@
 pipeline {
-    agent {
-        docker { image 'maven:3.8.6-openjdk-18' }
-    }
+    agent none
     stages {
-        stage('Test') {
+        stage('Back-end') {
+            agent {
+                docker { image 'maven:3.8.6-adoptopenjdk-11' }
+            }
             steps {
                 sh 'mvn --version'
+            }
+        }
+        stage('Front-end') {
+            agent {
+                docker { image 'node:16.13.1-alpine' }
+            }
+            steps {
+                sh 'node --version'
             }
         }
     }
