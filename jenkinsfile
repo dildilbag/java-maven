@@ -1,14 +1,51 @@
 pipeline {
-    agent { docker { image 'maven:3.8.6-openjdk-11-slim' } }
+    agent { docker { image 'maven:3.8.6-openjdk-18-slim' } }
     stages {
         stage('build') {
             steps {
-                sh 'mvn --package'
+                sh 'mvn --version'
             }
         }
+        stage('Hello') {
+            steps {
+                echo " Die BuildID lautet: '$BUILD_ID'  Jobname ist: '$JOB_NAME'  Build mit der Nummer '$BUILD_NUMBER' wird gebaut "
+                sh '''
+                mvn -package
+                cd target
+                ls
+                '''
+             
+                
+                
+            }
+        }   
     }
 }
 /*
+pipeline{
+    agaent {
+        docker {image"}
+    }
+        tools{
+            maven "aApache Maven 3.8.6"
+            jdk "Java"
+        }
+        stages{
+            stage("Build"){
+               steps{
+                  echo ""
+               }
+        }
+        stage("Test"){
+            steps{
+                sh '''
+
+                '''
+            }
+        }
+        }
+}
+
 pipeline {
     agent any 
     stages {
