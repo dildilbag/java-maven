@@ -3,18 +3,18 @@ pipeline {
     stages {
         stage('Back-end') {
             agent {
-                docker { image 'maven:3.8.6-adoptopenjdk-17' }
+                docker { image 'maven:3.8.6-openjdk-17' }
             }
             steps {
-                sh 'mvn --version'
+                sh 'mvn package'
             }
         }
         stage('Front-end') {
             agent {
-                docker { image 'node:16.13.1-alpine' }
+                docker {  image 'maven:3.8.6-openjdk-17' }
             }
             steps {
-                sh 'node --version'
+                sh 'mvn test'
             }
         }
     }
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 echo " Die BuildID lautet: '$BUILD_ID'  Jobname ist: '$JOB_NAME'  Build mit der Nummer '$BUILD_NUMBER' wird gebaut "
                 sh '''
-                mvn -package
+                mvn package
                 cd target
                 ls
                 '''
