@@ -1,7 +1,7 @@
 pipeline {
     agent none
     stages {
-        stage('Back-end') {
+        stage('Build') {
             agent {
                 docker { image 'maven:3.8.6-openjdk-17' }
             }
@@ -9,7 +9,7 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        stage('Front-end') {
+        stage('Test') {
             agent {
                 docker {  image 'maven:3.8.6-openjdk-17' }
             }
