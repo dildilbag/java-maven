@@ -25,52 +25,5 @@ pipeline {
  
     }
 }
-/* 
-pipeline {
-    agent any 
-    stages {
-        stage('Build') { 
-            steps {
-                 echo "Hallo World"
-            }
-        }
-        stage('Test') { 
-            steps {
-                 echo "Hallo Techstarter" 
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                 echo "Hallo Deutchland"
-            }
-        }
-    }
-}
- 
- 
-pipeline{
-    agent any
-    stages{
-        stage('Build') {
-            steps {
-                echo "Hallo World"
-            }
-        }
-        stage('Hello') {
-            steps {
-                echo " Die BuildID lautet: '$BUILD_ID'  Jobname ist: '$JOB_NAME'  Build mit der Nummer '$BUILD_NUMBER' wird gebaut "
-                sh '''
-                mvn -version
-                cd target
-                ls
-                '''
-             
-                
-                
-            }
-        }
-       
-     }}
 
-      */
 
