@@ -1,20 +1,20 @@
 pipeline {
     agent {
-        docker { 
-            image 'maven:3.8.6-openjdk-18' }
-        }    
+        docker {
+            image "maven:3.8.6-openjdk-18"
+        }
+    }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                sh 'mvn package '  
+                echo " Die BuildID lautet: '$BUILD_ID'  Jobname ist: '$JOB_NAME'  Build mit der Nummer '$BUILD_NUMBER' wird gebaut "
+                sh 'mvn package'
             }
         }
-        stage('Test') {
+        stage('test') {
             steps {
-                sh 'mvn test'       
+                sh 'mvn test'
             }
         }
     }
 }
-
-
