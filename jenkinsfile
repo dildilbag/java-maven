@@ -1,4 +1,17 @@
 pipeline {
+    agent {
+        docker { image 'maven:3.8.6-openjdk-18' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
+    }
+}
+/*
+pipeline {
     agent { docker { image 'maven:3.8.6-openjdk-18' } }
     stages {
         stage('build') {
@@ -17,7 +30,7 @@ pipeline {
                
             }
         }  
-          stage("Test"){
+        stage("Test"){
             steps{
                 sh '''
                 ls
@@ -29,7 +42,7 @@ pipeline {
         } 
     }
 }
-/*
+
 pipeline{
     agaent {
         docker {image"}
